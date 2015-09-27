@@ -349,9 +349,6 @@ public class EpisodeDetailFragment extends MediaRouteDiscoveryFragment implement
 	}
 
 	private void displayStreamingMenus(Episode episode) {
-		if (this.castMenu != null) {
-			this.castMenu.setVisible(this.isCastMenuVisible(episode));
-		}
 
 		if (this.playVideoMenu != null) {
 			this.playVideoMenu.setVisible(this.isPlayMenuVisible(episode));
@@ -393,17 +390,7 @@ public class EpisodeDetailFragment extends MediaRouteDiscoveryFragment implement
 	}
 
 	private boolean isCastMenuVisible(@Nullable Episode episode) {
-		FragmentActivity activity = this.getActivity();
-
-		if (activity == null) {
-			return false;
-		}
-
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-		boolean episodeDownloaded = this.isEpisodeDownloaded(episode);
-		boolean viewInExternalVideoPlayer = preferences.getBoolean("stream_in_chromecast", false);
-
-		return episodeDownloaded && viewInExternalVideoPlayer;
+		return false;
 	}
 
 	private boolean isEpisodeDownloaded(@Nullable Episode episode) {
